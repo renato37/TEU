@@ -9,6 +9,8 @@ if 'count' not in st.session_state:
     st.session_state[0] = Node(0, parentId=None)
     st.session_state['count'] = 0
     st.session_state['current'] = 0
+    st.session_state['mainTitle'] = ''
+    st.session_state['mainDescription'] = ''
 
 node = st.session_state[st.session_state['current']]
 if node.parentId is not None:

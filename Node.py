@@ -1,7 +1,8 @@
 class Node:
-    def __init__(self, id, title='', text='', image='', parentId=None):
+    def __init__(self, id, title='', text='', image='', question='', parentId=None):
         self.id = id
         self.title = title
+        self.question = question
         self.text = text
         self.image = image
         self.parentId = parentId
@@ -21,6 +22,9 @@ class Node:
     def setText(self, text):
         self.text = text
 
+    def setQuestion(self, question):
+        self.question = question
+        
     def setImage(self, image):
         self.image = image
 

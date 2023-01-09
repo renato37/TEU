@@ -66,7 +66,7 @@ with col1:
         d = st.session_state[0].toDict({}, st.session_state)
         for d1 in d:
             for c in d[d1]['children']:
-                graph.edge(d[c]['title']+'\n'+d[d1]['question'], (d[c]['title']+'\n'+d[c]['question']))
+                graph.edge(d[d1]]['title']+'\n'+d[d1]['question'], (d[c]['title']+'\n'+d[c]['question']))
         st.graphviz_chart(graph)
         st.write(d)
 with col2:

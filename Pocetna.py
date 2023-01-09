@@ -9,7 +9,7 @@ if 'dic' in st.session_state:
     if dic1['parentId'] is not None:
         if st.button('Natrag', key='n'+str(dic1['parentId'])):
             st.session_state['position'] = str(dic1['parentId'])
-    st.title(dic1['title'])
+    st.title(dic1['question'])
     st.text(dic1['text'])
     if dic1['image'] is not None and dic1['image'] != "":
         st.image(dic1['image'])

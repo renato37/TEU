@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-client = MongoClient("mongodb://Renato:Renato123@cluster0.551n6lo.mongodb.net/?retryWrites=true&w=majority", ssl_ca_certs=False)
+client = MongoClient("mongodb+srv://Renato:Renato123@cluster0.551n6lo.mongodb.net/?retryWrites=true&w=majority", ssl_ca_certs=False)
 db = client.test
 
 systems = db['System']

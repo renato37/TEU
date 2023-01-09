@@ -24,7 +24,7 @@ else:
     st.session_state['mainDescription'] = st.text_area('Kratki opis sustava: ', value=st.session_state['mainDescription'])
 node.setTitle(st.text_input('Naslov opcije: ', value=node.title))
 node.setText(st.text_area('Detaljniji opis: ', value=node.text))
-img = st.file_uploader('Slika: ', type=['png', 'jpg', 'jpeg'])
+img = st.file_uploader('Slika: ', type=['png', 'jpg', 'jpeg'], key='i'+str(st.session_state['current']))
 if img is not None:
     node.setImage(img.read())
 

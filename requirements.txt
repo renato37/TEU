@@ -1,2 +1,2 @@
 pymongo==4.3.3.
-graphviz==1.17.0
+python-graphviz=0.20.1=pypi_0

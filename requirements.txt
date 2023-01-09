@@ -1,2 +1,2 @@
 pymongo==4.3.3.
-graphviz==2.42
+graphviz==2.42.0.

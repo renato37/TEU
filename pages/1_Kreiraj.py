@@ -16,13 +16,15 @@ node = st.session_state[st.session_state['current']]
 if node.parentId is not None:
     st.title(st.session_state['mainTitle'])
     backButton = st.button('Natrag', key='b'+str(node.parentId))
+    node.setTitle(st.text_input('Naslov opcije: ', value=node.title))
     if backButton:
         node = st.session_state[node.parentId]
         st.session_state['current'] = node.id
 else:
     st.session_state['mainTitle'] = st.text_input('Naslov ekspertnog sustava: ', value=st.session_state['mainTitle'])
     st.session_state['mainDescription'] = st.text_area('Kratki opis sustava: ', value=st.session_state['mainDescription'])
-node.setTitle(st.text_input('Naslov opcije: ', value=node.title))
+
+node.setQuestion(st.text_input('Pitanje: ', value=node.question))
 node.setText(st.text_area('Detaljniji opis: ', value=node.text))
 img = st.file_uploader('Slika: ', type=['png', 'jpg', 'jpeg'], key='i'+str(st.session_state['current']))
 if img is not None:
@@ -64,7 +66,7 @@ with col1:
         d = st.session_state[0].toDict({}, st.session_state)
         for d1 in d:
             for c in d[d1]['children']:
-                graph.edge(d[d1]['title'], d[c]['title'])
+                graph.edge(d[d1]['question'], (d[c]['title']+'\n'+d[c]['question']))
         st.graphviz_chart(graph)
         st.write(d)
 with col2:

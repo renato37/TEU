@@ -18,13 +18,13 @@ if node.parentId is not None:
         node = st.session_state[node.parentId]
         st.session_state['current'] = node.id
 else:
-    st.session_state['mainTitle'] = st.text_input('Naslov ekspertnog sustava: ')
-    st.session_state['mainDescription'] = st.text_area('Kratki opis sustava: ')
+    st.session_state['mainTitle'] = st.text_input('Naslov ekspertnog sustava: ', value=st.session_state['mainTitle'])
+    st.session_state['mainDescription'] = st.text_area('Kratki opis sustava: ', value=st.session_state['mainDescription'])
 node.setTitle(st.text_input('Naslov opcije: ', value=node.title))
 node.setText(st.text_area('Detaljniji opis: ', value=node.text))
-img = st.file_uploader('Slika: ', type=['png', 'jpg', 'jpeg'])
-if img is not None:
-    node.setImage(img.read())
+st.session_state['img'] = st.file_uploader('Slika: ', type=['png', 'jpg', 'jpeg'])
+if 'img' in st.session_state and st.session_state['img'] is not None:
+    node.setImage(st.session_state['img'].read())
 
 if st.button('Dodaj'):
     con = int(st.session_state['count']) + 1

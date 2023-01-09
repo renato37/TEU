@@ -22,9 +22,9 @@ else:
     st.session_state['mainDescription'] = st.text_area('Kratki opis sustava: ', value=st.session_state['mainDescription'])
 node.setTitle(st.text_input('Naslov opcije: ', value=node.title))
 node.setText(st.text_area('Detaljniji opis: ', value=node.text))
-st.session_state['img'] = st.file_uploader('Slika: ', type=['png', 'jpg', 'jpeg'])
-if 'img' in st.session_state and st.session_state['img'] is not None:
-    node.setImage(st.session_state['img'].read())
+img = st.file_uploader('Slika: ', type=['png', 'jpg', 'jpeg'])
+if img is not None:
+    node.setImage(img.read())
 
 if st.button('Dodaj'):
     con = int(st.session_state['count']) + 1
@@ -35,6 +35,7 @@ if st.button('Dodaj'):
     ch.text = ''
     ch.image = ''
     st.session_state[con] = ch
+    img = None   
 
 i = 0
 for c in node.children:

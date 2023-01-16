@@ -24,7 +24,7 @@ else:
     st.session_state['mainTitle'] = st.text_input('Naslov ekspertnog sustava: ', value=st.session_state['mainTitle'])
     st.session_state['mainDescription'] = st.text_area('Kratki opis sustava: ', value=st.session_state['mainDescription'])
 
-node.setQuestion(st.text_input('Pitanje: ', value=node.question))
+node.setQuestion(st.text_input('Pitanje/odgovor: ', value=node.question))
 node.setText(st.text_area('Detaljniji opis: ', value=node.text))
 img = st.file_uploader('Slika: ', type=['png', 'jpg', 'jpeg'], key='i'+str(st.session_state['current']))
 if img is not None:
